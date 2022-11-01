@@ -1,4 +1,6 @@
-
+import mysql.connector
+mydb=mysql.connector.connect(host='localhost',user='root',password='',database='bloodbankdb')
+mycursor = mydb.cursor()
 while True:
     print("select an option from the menu")
     print('1 add blooddonar detail')
@@ -11,6 +13,15 @@ while True:
     choice=int(input('enter the option:'))
     if(choice==1):
         print("add  blooddonor")
+        name=input('enter the name:')
+        address=input("enter address:")
+        phoneno=input('enter phone number:')
+        bloodgroup=input("enter blood group:")
+        sql='INSERT INTO `bloodbank`(`name`, `address`, `phoneno`, `bloodgroup`) VALUES (%s,%s,%s,%s)'
+        data=(name,address,phoneno,bloodgroup)
+        mycursor.execute(sql,data)
+        mydb.commit()
+        print("view student")
     if(choice==2):
         print("view blooddonor")
     elif(choice==3):
