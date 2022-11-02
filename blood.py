@@ -38,6 +38,14 @@ while True:
         print(result)
     elif(choice==4):
         print('update the blooddonor')
+        phoneno=input('enter phonrno to be updated:')
+        name=input('enter name:')
+        address=input("enter address to be updated:")
+        bloodgroup=input("enter bloodgroup to be updated:")
+        sql="UPDATE `bloodbank` SET `name`='"+name+"',`address`='"+address+"',`phoneno`='"+phoneno+"',`bloodgroup`='"+bloodgroup+"',`phoneno`='"+phoneno+"' WHERE `phoneno`= "+phoneno
+        mycursor.execute(sql)
+        mydb.commit()
+        print("data successfully updated")
     elif(choice==5):
         print('delete the blooddonar')
     elif(choice==6):
