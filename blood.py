@@ -48,5 +48,9 @@ while True:
         print("data successfully updated")
     elif(choice==5):
         print('delete the blooddonar')
+        phoneno=input("enter phoneno:")
+        sql='DELETE FROM `bloodbank` WHERE `phoneno`='+phoneno
+        mycursor.execute(sql)
+        mydb.commit()
     elif(choice==6):
         break  
