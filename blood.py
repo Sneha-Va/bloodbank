@@ -8,7 +8,8 @@ while True:
     print('3 search  blooddonor details')
     print('4 update blooddonor details')
     print('5 delete blooddonors details ')
-    print('6 exit')
+    print('6 name of donar with starting letter')
+    print('7 exit')
     
     choice=int(input('enter the option:'))
     if(choice==1):
@@ -53,4 +54,13 @@ while True:
         mycursor.execute(sql)
         mydb.commit()
     elif(choice==6):
-        break  
+        print("name of the donar with strating letter") 
+        letter=input("enter the letter")
+        sql= "SELECT `id`, `name`, `address`, `phoneno`, `bloodgroup` FROM `bloodbank` WHERE `name` LIKE '%"+letter+"%'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+    elif(choice==7):
+        break
+        
