@@ -24,6 +24,12 @@ while True:
         print("view student")
     if(choice==2):
         print("view blooddonor")
+        print("view employee")
+        sql='SELECT * FROM `blood`' 
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        for i in result:
+            print(i)
     elif(choice==3):
         print('search blooddonor')
     elif(choice==4):
